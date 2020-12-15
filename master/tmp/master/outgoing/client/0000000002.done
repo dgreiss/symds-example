@@ -1,0 +1,19 @@
+nodeid,master
+binary,BASE64
+channel,config
+batch,2
+catalog,
+schema,
+table,sym_table_reload_request
+keys,target_node_id,source_node_id,trigger_id,router_id,create_time
+columns,target_node_id,source_node_id,trigger_id,router_id,create_time,create_table,delete_first,reload_select,before_custom_sql,reload_time,load_id,processed,channel_id,last_update_by,last_update_time
+basetime,1607993503512
+insert,"master","client","ALL","ALL","2020-12-14 19:51:43.000000","0","0",,,,,"0",,,"2020-12-14 19:51:43.501000"
+catalog,
+schema,
+table,sym_node_security
+keys,node_id
+columns,node_id,node_password,registration_enabled,registration_time,initial_load_enabled,initial_load_time,initial_load_end_time,initial_load_id,initial_load_create_by,rev_initial_load_enabled,rev_initial_load_time,rev_initial_load_id,rev_initial_load_create_by,failed_logins,created_at_node_id
+ts,10
+update,"client","xET4GtJKpqlVLShivnQE6YRCg4W84l","0","2020-12-14 19:51:24.093647","0",,,"0",,"0","2020-12-14 19:51:43.516000","0","registration","0","master","client"
+commit,2

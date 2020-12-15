@@ -1,0 +1,12 @@
+nodeid,client
+binary,HEX
+channel,config
+batch,8
+catalog,
+schema,
+table,sym_table_reload_request
+keys,create_time,router_id,source_node_id,target_node_id,trigger_id
+columns,create_time,router_id,source_node_id,target_node_id,trigger_id,create_table,delete_first,reload_select,before_custom_sql,reload_time,load_id,processed,channel_id,last_update_by,last_update_time
+basetime,1608011510000
+update,"2020-12-14 19:51:43","ALL","client","master","ALL","0","0",,,,"2","0",,,"2020-12-14 19:51:50","2020-12-14 19:51:43","ALL","client","master","ALL"
+commit,8

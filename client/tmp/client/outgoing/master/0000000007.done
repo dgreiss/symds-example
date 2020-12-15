@@ -1,0 +1,11 @@
+nodeid,client
+binary,HEX
+channel,reload
+batch,7
+catalog,
+schema,client
+table,item
+keys,item_id
+columns,item_id,name
+insert,11000001,"Yummy Gum"
+commit,7

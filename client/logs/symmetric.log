@@ -1,0 +1,1507 @@
+2020-12-14 19:25:25,529 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={master}
+2020-12-14 19:25:25,533 INFO [] [AbstractCommandLauncher] [main] Option: name=format, value={XML}
+2020-12-14 19:25:25,533 INFO [] [AbstractCommandLauncher] [main] Option: name=alter-case, value={}
+2020-12-14 19:25:49,671 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={master}
+2020-12-14 19:25:49,675 INFO [] [AbstractCommandLauncher] [main] Option: name=format, value={XML}
+2020-12-14 19:25:49,675 INFO [] [AbstractCommandLauncher] [main] Option: name=alter-case, value={}
+2020-12-14 19:25:49,863 INFO [] [AbstractSymmetricEngine] [main] Initializing connection to database
+2020-12-14 19:25:49,917 INFO [] [JdbcDatabasePlatformFactory] [main] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:25:49,931 INFO [] [JdbcDatabasePlatformFactory] [main] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:26:08,186 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={master}
+2020-12-14 19:26:08,189 INFO [] [AbstractCommandLauncher] [main] Option: name=format, value={XML}
+2020-12-14 19:26:08,189 INFO [] [AbstractCommandLauncher] [main] Option: name=alter-case, value={}
+2020-12-14 19:26:08,355 INFO [] [AbstractSymmetricEngine] [main] Initializing connection to database
+2020-12-14 19:26:08,407 INFO [] [JdbcDatabasePlatformFactory] [main] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:26:08,420 INFO [] [JdbcDatabasePlatformFactory] [main] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:26:08,485 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="item">
+		<column name="item_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="name" type="VARCHAR" size="100"/>
+	</table>
+</database>
+2020-12-14 19:26:08,507 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="item_selling_price">
+		<column name="item_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="store_id" primaryKey="true" primaryKeySeq="0" required="true" type="VARCHAR" size="5"/>
+		<column name="price" required="true" type="DECIMAL" size="10,2"/>
+		<column name="cost" type="DECIMAL" size="10,2"/>
+		<foreign-key name="fk_price_item_id" foreignTable="item" foreignTableCatalog="" foreignTableSchema="">
+			<reference local="item_id" foreign="item_id"/>
+		</foreign-key>
+	</table>
+</database>
+2020-12-14 19:26:08,527 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="sale_transaction">
+		<column name="tran_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="store_id" required="true" type="VARCHAR" size="5"/>
+		<column name="workstation" required="true" type="VARCHAR" size="3"/>
+		<column name="day" required="true" type="VARCHAR" size="10"/>
+		<column name="seq" required="true" type="INTEGER"/>
+	</table>
+</database>
+2020-12-14 19:26:08,544 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="sale_return_line_item">
+		<column name="tran_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="item_id" required="true" type="INTEGER"/>
+		<column name="price" required="true" type="DECIMAL" size="10,2"/>
+		<column name="quantity" required="true" type="INTEGER"/>
+		<column name="returned_quantity" type="INTEGER"/>
+		<foreign-key name="fk_srli_tran_id" foreignTable="sale_transaction" foreignTableCatalog="" foreignTableSchema="">
+			<reference local="tran_id" foreign="tran_id"/>
+		</foreign-key>
+		<foreign-key name="fk_srli_item_id" foreignTable="item" foreignTableCatalog="" foreignTableSchema="">
+			<reference local="item_id" foreign="item_id"/>
+		</foreign-key>
+	</table>
+</database>
+2020-12-14 19:26:35,843 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={master}
+2020-12-14 19:26:35,845 INFO [] [AbstractCommandLauncher] [main] Option: name=format, value={XML}
+2020-12-14 19:26:35,845 INFO [] [AbstractCommandLauncher] [main] Option: name=alter-case, value={}
+2020-12-14 19:26:36,022 INFO [] [AbstractSymmetricEngine] [main] Initializing connection to database
+2020-12-14 19:26:36,069 INFO [] [JdbcDatabasePlatformFactory] [main] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:26:36,080 INFO [] [JdbcDatabasePlatformFactory] [main] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:26:36,145 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="item">
+		<column name="item_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="name" type="VARCHAR" size="100"/>
+	</table>
+</database>
+2020-12-14 19:26:36,150 WARN [] [JdbcSqlTemplate] [main] ERROR: relation "item" already exists.  Failed to execute: CREATE TABLE "public"."item"(
+    "item_id" INTEGER NOT NULL,
+    "name" VARCHAR(100),
+    PRIMARY KEY ("item_id")
+)
+2020-12-14 19:26:36,151 ERROR [] [DefaultDatabaseWriter] [main] Failed to alter table using the following xml: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="item">
+		<column name="item_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="name" type="VARCHAR" size="100"/>
+	</table>
+</database> StackTraceKey.init [SqlException:1596873283] org.jumpmind.db.sql.SqlException: ERROR: relation "item" already exists
+	at org.jumpmind.db.sql.AbstractSqlTemplate.translate(AbstractSqlTemplate.java:306)
+	at org.jumpmind.db.sql.AbstractSqlTemplate.translate(AbstractSqlTemplate.java:295)
+	at org.jumpmind.db.sql.JdbcSqlTemplate.execute(JdbcSqlTemplate.java:523)
+	at org.jumpmind.db.sql.JdbcSqlTemplate.update(JdbcSqlTemplate.java:431)
+	at org.jumpmind.db.sql.SqlScript.execute(SqlScript.java:114)
+	at org.jumpmind.db.platform.AbstractDatabasePlatform.createDatabase(AbstractDatabasePlatform.java:211)
+	at org.jumpmind.symmetric.io.data.writer.DefaultDatabaseWriter.create(DefaultDatabaseWriter.java:617)
+	at org.jumpmind.symmetric.io.data.writer.AbstractDatabaseWriter.write(AbstractDatabaseWriter.java:204)
+	at org.jumpmind.symmetric.io.data.DataProcessor.forEachDataInTable(DataProcessor.java:212)
+	at org.jumpmind.symmetric.io.data.DataProcessor.forEachTableInBatch(DataProcessor.java:178)
+	at org.jumpmind.symmetric.io.data.DataProcessor.process(DataProcessor.java:124)
+	at org.jumpmind.symmetric.io.data.DataProcessor.process(DataProcessor.java:82)
+	at org.jumpmind.symmetric.io.data.DbImport.importTablesFromXml(DbImport.java:234)
+	at org.jumpmind.symmetric.io.data.DbImport.importTables(DbImport.java:167)
+	at org.jumpmind.symmetric.DbImportCommand.executeWithOptions(DbImportCommand.java:188)
+	at org.jumpmind.symmetric.AbstractCommandLauncher.execute(AbstractCommandLauncher.java:193)
+	at org.jumpmind.symmetric.DbImportCommand.main(DbImportCommand.java:72)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "item" already exists
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:473)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:393)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.apache.commons.dbcp.DelegatingStatement.execute(DelegatingStatement.java:264)
+	at org.apache.commons.dbcp.DelegatingStatement.execute(DelegatingStatement.java:264)
+	at org.jumpmind.db.sql.JdbcSqlTemplate$6.execute(JdbcSqlTemplate.java:446)
+	at org.jumpmind.db.sql.JdbcSqlTemplate$6.execute(JdbcSqlTemplate.java:431)
+	at org.jumpmind.db.sql.JdbcSqlTemplate.execute(JdbcSqlTemplate.java:521)
+	... 14 more
+
+2020-12-14 19:27:39,289 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={master}
+2020-12-14 19:27:39,473 INFO [] [AbstractSymmetricEngine] [main] Initializing connection to database
+2020-12-14 19:27:39,522 INFO [] [JdbcDatabasePlatformFactory] [main] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:27:39,534 INFO [] [JdbcDatabasePlatformFactory] [main] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:27:39,565 ERROR [] [DefaultDatabaseWriter] [main] Failed to run the following sql: delete from sym_trigger_router
+2020-12-14 19:30:33,444 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:30:33,499 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:31415:HTTP/1.1
+2020-12-14 19:30:33,691 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/symmetric-server-3.12.5
+2020-12-14 19:30:33,692 INFO [startup] [SymmetricEngineHolder] [main] Starting in multi-server mode with engines directory at /Users/dg/code/playground/symds-example/symmetric-server-3.12.5/engines
+2020-12-14 19:30:33,693 ERROR [startup] [SymmetricEngineHolder] [main] **** FATAL **** error org.jumpmind.symmetric.SymmetricException: Invalid configuration detected. 2 properties files reference the same db.user@db.url: 'postgres@jdbc:postgresql://127.0.0.1:5432/symds?stringtype=unspecified'. Maybe an engines file was copied and needs to be moved. See: /Users/dg/code/playground/symds-example/symmetric-server-3.12.5/engines/test.properties and /Users/dg/code/playground/symds-example/symmetric-server-3.12.5/engines/master.properties.
+2020-12-14 19:30:33,693 WARN [startup] [WebAppContext] [main] Failed startup of context o.e.j.w.WebAppContext@c1fca1e{SymmetricDS,/,file:///Users/dg/code/playground/symds-example/symmetric-server-3.12.5/web/,UNAVAILABLE}{/Users/dg/code/playground/symds-example/symmetric-server-3.12.5/web} StackTraceKey.init [SymmetricException:2658333662] org.jumpmind.symmetric.SymmetricException: Invalid configuration detected. 2 properties files reference the same db.user@db.url: 'postgres@jdbc:postgresql://127.0.0.1:5432/symds?stringtype=unspecified'. Maybe an engines file was copied and needs to be moved. See: /Users/dg/code/playground/symds-example/symmetric-server-3.12.5/engines/test.properties and /Users/dg/code/playground/symds-example/symmetric-server-3.12.5/engines/master.properties.
+	at org.jumpmind.symmetric.web.SymmetricEngineHolder.checkDuplicate(SymmetricEngineHolder.java:509)
+	at org.jumpmind.symmetric.web.SymmetricEngineHolder.validateEngineFiles(SymmetricEngineHolder.java:494)
+	at org.jumpmind.symmetric.web.SymmetricEngineHolder.start(SymmetricEngineHolder.java:219)
+	at org.jumpmind.symmetric.web.SymmetricContextListener.contextInitialized(SymmetricContextListener.java:60)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:1068)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:561)
+	at org.eclipse.jetty.server.handler.ContextHandler.contextInitialized(ContextHandler.java:997)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:787)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:368)
+	at org.eclipse.jetty.webapp.WebAppContext.startWebapp(WebAppContext.java:1457)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1422)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:911)
+	at org.eclipse.jetty.servlet.ServletContextHandler.doStart(ServletContextHandler.java:277)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:524)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:72)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:169)
+	at org.eclipse.jetty.server.Server.start(Server.java:423)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:110)
+	at org.eclipse.jetty.server.handler.AbstractHandler.doStart(AbstractHandler.java:97)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:387)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:72)
+	at org.jumpmind.symmetric.SymmetricWebServer.start(SymmetricWebServer.java:288)
+	at org.jumpmind.symmetric.SymmetricWebServer.start(SymmetricWebServer.java:215)
+	at org.jumpmind.symmetric.SymmetricWebServer.start(SymmetricWebServer.java:206)
+	at org.jumpmind.symmetric.SymmetricLauncher.executeWithOptions(SymmetricLauncher.java:210)
+	at org.jumpmind.symmetric.AbstractCommandLauncher.execute(AbstractCommandLauncher.java:193)
+	at org.jumpmind.symmetric.SymmetricLauncher.main(SymmetricLauncher.java:75)
+
+2020-12-14 19:30:33,720 INFO [startup] [SymmetricWebServer] [main] Joining the web server main thread
+2020-12-14 19:36:43,651 INFO [startup] [AbstractCommandLauncher] [main] Option: name=verbose, value={}
+2020-12-14 19:36:43,690 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:36:43,738 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:31415:HTTP/1.1
+2020-12-14 19:36:43,917 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/client
+2020-12-14 19:36:43,917 INFO [startup] [SymmetricEngineHolder] [main] Starting in single-server mode
+2020-12-14 19:36:43,975 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing connection to database
+2020-12-14 19:36:44,175 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:36:44,187 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:36:44,295 INFO [test] [PostgreSqlSymmetricDialect] [symmetric-engine-startup-1] The DbDialect being used is org.jumpmind.symmetric.db.postgresql.PostgreSqlSymmetricDialect
+2020-12-14 19:36:44,335 INFO [test] [ExtensionService] [symmetric-engine-startup-1] Found 0 extension points from the database that will be registered
+2020-12-14 19:36:44,344 INFO [test] [StagingManager] [symmetric-engine-startup-1] The staging directory was initialized at the following location: /Users/dg/code/playground/symds-example/client/tmp/test
+2020-12-14 19:37:12,546 INFO [startup] [AbstractCommandLauncher] [main] Option: name=verbose, value={}
+2020-12-14 19:37:12,577 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:37:12,614 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:31415:HTTP/1.1
+2020-12-14 19:37:12,775 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/client
+2020-12-14 19:37:12,776 INFO [startup] [SymmetricEngineHolder] [main] Starting in single-server mode
+2020-12-14 19:37:12,828 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing connection to database
+2020-12-14 19:37:13,012 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:37:13,021 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:37:13,126 INFO [test] [PostgreSqlSymmetricDialect] [symmetric-engine-startup-1] The DbDialect being used is org.jumpmind.symmetric.db.postgresql.PostgreSqlSymmetricDialect
+2020-12-14 19:37:13,165 INFO [test] [ExtensionService] [symmetric-engine-startup-1] Found 0 extension points from the database that will be registered
+2020-12-14 19:37:13,174 INFO [test] [StagingManager] [symmetric-engine-startup-1] The staging directory was initialized at the following location: /Users/dg/code/playground/symds-example/client/tmp/test
+2020-12-14 19:37:46,836 INFO [startup] [AbstractCommandLauncher] [main] Option: name=verbose, value={}
+2020-12-14 19:37:46,869 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:37:46,906 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:31416:HTTP/1.1
+2020-12-14 19:37:47,069 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/client
+2020-12-14 19:37:47,069 INFO [startup] [SymmetricEngineHolder] [main] Starting in single-server mode
+2020-12-14 19:37:47,120 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing connection to database
+2020-12-14 19:37:47,307 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:37:47,315 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:37:47,421 INFO [test] [PostgreSqlSymmetricDialect] [symmetric-engine-startup-1] The DbDialect being used is org.jumpmind.symmetric.db.postgresql.PostgreSqlSymmetricDialect
+2020-12-14 19:37:47,471 INFO [test] [ExtensionService] [symmetric-engine-startup-1] Found 0 extension points from the database that will be registered
+2020-12-14 19:37:47,479 INFO [test] [StagingManager] [symmetric-engine-startup-1] The staging directory was initialized at the following location: /Users/dg/code/playground/symds-example/client/tmp/test
+2020-12-14 19:39:36,119 INFO [startup] [AbstractCommandLauncher] [main] Option: name=verbose, value={}
+2020-12-14 19:39:36,152 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:39:36,195 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:314151:HTTP/1.1
+2020-12-14 19:39:36,371 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/client
+2020-12-14 19:39:36,371 INFO [startup] [SymmetricEngineHolder] [main] Starting in single-server mode
+2020-12-14 19:39:36,426 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing connection to database
+2020-12-14 19:39:36,620 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:39:36,630 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:39:36,738 INFO [test] [PostgreSqlSymmetricDialect] [symmetric-engine-startup-1] The DbDialect being used is org.jumpmind.symmetric.db.postgresql.PostgreSqlSymmetricDialect
+2020-12-14 19:39:36,777 INFO [test] [ExtensionService] [symmetric-engine-startup-1] Found 0 extension points from the database that will be registered
+2020-12-14 19:39:36,785 INFO [test] [StagingManager] [symmetric-engine-startup-1] The staging directory was initialized at the following location: /Users/dg/code/playground/symds-example/client/tmp/test
+2020-12-14 19:39:51,353 INFO [startup] [AbstractCommandLauncher] [main] Option: name=verbose, value={}
+2020-12-14 19:39:51,386 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:39:51,425 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:31418:HTTP/1.1
+2020-12-14 19:39:51,598 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/client
+2020-12-14 19:39:51,598 INFO [startup] [SymmetricEngineHolder] [main] Starting in single-server mode
+2020-12-14 19:39:51,650 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing connection to database
+2020-12-14 19:39:51,831 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] Detected database 'postgres95', version '12', protocol 'postgresql'
+2020-12-14 19:39:51,840 INFO [test] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] The IDatabasePlatform being used is org.jumpmind.db.platform.postgresql.PostgreSql95DatabasePlatform
+2020-12-14 19:39:51,950 INFO [test] [PostgreSqlSymmetricDialect] [symmetric-engine-startup-1] The DbDialect being used is org.jumpmind.symmetric.db.postgresql.PostgreSqlSymmetricDialect
+2020-12-14 19:39:51,986 INFO [test] [ExtensionService] [symmetric-engine-startup-1] Found 0 extension points from the database that will be registered
+2020-12-14 19:39:51,994 INFO [test] [StagingManager] [symmetric-engine-startup-1] The staging directory was initialized at the following location: /Users/dg/code/playground/symds-example/client/tmp/test
+2020-12-14 19:39:52,247 INFO [startup] [SymmetricWebServer] [main] Joining the web server main thread
+2020-12-14 19:39:52,352 INFO [test] [ExtensionService] [symmetric-engine-startup-1] Found 0 extension points from the database that will be registered
+2020-12-14 19:39:52,352 INFO [test] [ClientExtensionService] [symmetric-engine-startup-1] Found 8 extension points from spring that will be registered
+2020-12-14 19:39:52,358 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing SymmetricDS database
+2020-12-14 19:39:52,376 INFO [test] [PostgreSqlSymmetricDialect] [symmetric-engine-startup-1] Checking if SymmetricDS tables need created or altered
+2020-12-14 19:39:53,316 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Done initializing SymmetricDS database
+2020-12-14 19:39:53,316 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] SymmetricDS database version : 3.12.5
+2020-12-14 19:39:53,316 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] SymmetricDS software version : 3.12.5
+2020-12-14 19:39:53,334 ERROR [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] An error occurred while starting SymmetricDS StackTraceKey.init [SymmetricException:2752170050] org.jumpmind.symmetric.SymmetricException: The configured state does not match recorded database state.  The recorded external id is 'master' while the configured external id is 'test'. The recorded node group id is 'master' while the configured node group id is 'test'
+	at org.jumpmind.symmetric.AbstractSymmetricEngine.checkSystemIntegrity(AbstractSymmetricEngine.java:753)
+	at org.jumpmind.symmetric.AbstractSymmetricEngine.start(AbstractSymmetricEngine.java:661)
+	at org.jumpmind.symmetric.AbstractSymmetricEngine.start(AbstractSymmetricEngine.java:647)
+	at org.jumpmind.symmetric.ClientSymmetricEngine.start(ClientSymmetricEngine.java:277)
+	at org.jumpmind.symmetric.web.SymmetricEngineHolder$EngineStarter.run(SymmetricEngineHolder.java:611)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2020-12-14 19:39:53,341 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Stopping SymmetricDS externalId=test version=3.12.5 database=PostgreSQL
+2020-12-14 19:39:53,341 INFO [test] [AbstractSymmetricEngine] [symmetric-engine-startup-1] 
+2020-12-14 19:49:14,261 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={client}
+2020-12-14 19:49:14,264 INFO [] [AbstractCommandLauncher] [main] Option: name=format, value={XML}
+2020-12-14 19:49:14,264 INFO [] [AbstractCommandLauncher] [main] Option: name=alter-case, value={}
+2020-12-14 19:49:57,807 INFO [] [ModuleManager] [main] Installing module mariadb with 1 artifacts
+2020-12-14 19:49:58,677 INFO [] [ModuleManager] [main] Downloading https://jcenter.bintray.com/org/mariadb/jdbc/mariadb-java-client/2.4.0/mariadb-java-client-2.4.0.jar
+2020-12-14 19:50:00,631 INFO [] [ModuleManager] [main] Successfully installed module mariadb
+2020-12-14 19:50:04,301 INFO [] [AbstractCommandLauncher] [main] Option: name=engine, value={client}
+2020-12-14 19:50:04,304 INFO [] [AbstractCommandLauncher] [main] Option: name=format, value={XML}
+2020-12-14 19:50:04,304 INFO [] [AbstractCommandLauncher] [main] Option: name=alter-case, value={}
+2020-12-14 19:50:04,457 INFO [] [AbstractSymmetricEngine] [main] Initializing connection to database
+2020-12-14 19:50:04,482 INFO [] [JdbcDatabasePlatformFactory] [main] Detected database 'MariaDB', version '10', protocol 'mariadb'
+2020-12-14 19:50:04,495 INFO [] [JdbcDatabasePlatformFactory] [main] The IDatabasePlatform being used is org.jumpmind.db.platform.mariadb.MariaDBDatabasePlatform
+2020-12-14 19:50:04,551 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="item">
+		<column name="item_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="name" type="VARCHAR" size="100"/>
+	</table>
+</database>
+2020-12-14 19:50:04,572 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="item_selling_price">
+		<column name="item_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="store_id" primaryKey="true" primaryKeySeq="0" required="true" type="VARCHAR" size="5"/>
+		<column name="price" required="true" type="DECIMAL" size="10,2"/>
+		<column name="cost" type="DECIMAL" size="10,2"/>
+		<foreign-key name="fk_price_item_id" foreignTable="item" foreignTableCatalog="" foreignTableSchema="">
+			<reference local="item_id" foreign="item_id"/>
+		</foreign-key>
+	</table>
+</database>
+2020-12-14 19:50:04,601 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="sale_transaction">
+		<column name="tran_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="store_id" required="true" type="VARCHAR" size="5"/>
+		<column name="workstation" required="true" type="VARCHAR" size="3"/>
+		<column name="day" required="true" type="VARCHAR" size="10"/>
+		<column name="seq" required="true" type="INTEGER"/>
+	</table>
+</database>
+2020-12-14 19:50:04,615 INFO [] [DefaultDatabaseWriter] [main] About to create table using the following definition: <?xml version="1.0"?>
+<!DOCTYPE database SYSTEM "http://db.apache.org/torque/dtd/database">
+<database name="dbimport">
+	<table name="sale_return_line_item">
+		<column name="tran_id" primaryKey="true" primaryKeySeq="0" required="true" type="INTEGER"/>
+		<column name="item_id" required="true" type="INTEGER"/>
+		<column name="price" required="true" type="DECIMAL" size="10,2"/>
+		<column name="quantity" required="true" type="INTEGER"/>
+		<column name="returned_quantity" type="INTEGER"/>
+		<foreign-key name="fk_srli_tran_id" foreignTable="sale_transaction" foreignTableCatalog="" foreignTableSchema="">
+			<reference local="tran_id" foreign="tran_id"/>
+		</foreign-key>
+		<foreign-key name="fk_srli_item_id" foreignTable="item" foreignTableCatalog="" foreignTableSchema="">
+			<reference local="item_id" foreign="item_id"/>
+		</foreign-key>
+	</table>
+</database>
+2020-12-14 19:51:11,528 INFO [startup] [AbstractCommandLauncher] [main] Option: name=verbose, value={}
+2020-12-14 19:51:11,564 INFO [startup] [SymmetricUtils] [main] 
+   _____                              __       _       ____   _____
+  / ___/ __  _____ __  ___ __  ___  _/ /_ ____(_)___  / __ | / ___/
+  \__ \ / / / / _ `_ \/ _ `_ \/ _ \/_ __// __/ / __/ / / / / \__ \ 
+ ___/ // /_/ / // // / // // /  __// /  / / / / /_  / /_/ / ___/ / 
+/____/ \__  /_//_//_/_//_//_/\___/ \_/ /_/ /_/\__/ /_____/ /____/  
+      /____/                                                        
++-----------------------------------------------------------------+
+| Copyright (C) 2007-2020 JumpMind, Inc.                          |
+|                                                                 |
+| Licensed under the GNU General Public License version 3.        |
+| This software comes with ABSOLUTELY NO WARRANTY.                |
+| See http://www.gnu.org/licenses/gpl.html                        |
++-----------------------------------------------------------------+
+2020-12-14 19:51:11,610 INFO [startup] [SymmetricWebServer] [main] About to start SymmetricDS web server on 0.0.0.0:31418:HTTP/1.1
+2020-12-14 19:51:11,787 INFO [startup] [SymmetricEngineHolder] [main] Current directory is /Users/dg/code/playground/symds-example/client
+2020-12-14 19:51:11,787 INFO [startup] [SymmetricEngineHolder] [main] Starting in single-server mode
+2020-12-14 19:51:11,838 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing connection to database
+2020-12-14 19:51:11,972 INFO [client] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] Detected database 'MariaDB', version '10', protocol 'mariadb'
+2020-12-14 19:51:11,981 INFO [client] [JdbcDatabasePlatformFactory] [symmetric-engine-startup-1] The IDatabasePlatform being used is org.jumpmind.db.platform.mariadb.MariaDBDatabasePlatform
+2020-12-14 19:51:12,037 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] The DbDialect being used is org.jumpmind.symmetric.db.mariadb.MariaDBSymmetricDialect
+2020-12-14 19:51:12,057 INFO [client] [StagingManager] [symmetric-engine-startup-1] The staging directory was initialized at the following location: /Users/dg/code/playground/symds-example/client/tmp/client
+2020-12-14 19:51:12,440 INFO [client] [ClientExtensionService] [symmetric-engine-startup-1] Found 8 extension points from spring that will be registered
+2020-12-14 19:51:12,447 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Initializing SymmetricDS database
+2020-12-14 19:51:12,455 INFO [startup] [SymmetricWebServer] [main] Joining the web server main thread
+2020-12-14 19:51:12,457 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] Installing SymmetricDS database object:
+create function sym_transaction_id_post_5_7_6()                                                                                           
+ returns varchar(50) NOT DETERMINISTIC READS SQL DATA                                                                            
+ begin                                                                                                                           
+    declare done int default 0;                                                                                                  
+    declare comm_value varchar(50);                                                                                              
+    declare comm_cur cursor for select TRX_ID from INFORMATION_SCHEMA.INNODB_TRX where TRX_MYSQL_THREAD_ID = CONNECTION_ID();    
+    declare continue handler for not found set done = 1;                                                                         
+    open comm_cur;                                                                                                               
+    fetch comm_cur into comm_value;                                                                                              
+    close comm_cur;                                                                                                              
+    return concat(concat(connection_id(), '.'), comm_value);                                                                     
+ end                                                                                                                             
+2020-12-14 19:51:12,461 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] Just installed sym_transaction_id_post_5_7_6
+2020-12-14 19:51:12,461 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] Checking if SymmetricDS tables need created or altered
+2020-12-14 19:51:12,669 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] There are SymmetricDS tables that needed altered
+2020-12-14 19:51:12,679 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_channel`(
+    `channel_id` VARCHAR(128) NOT NULL,
+    `processing_order` INTEGER DEFAULT 1 NOT NULL,
+    `max_batch_size` INTEGER DEFAULT 1000 NOT NULL,
+    `max_batch_to_send` INTEGER DEFAULT 60 NOT NULL,
+    `max_data_to_route` INTEGER DEFAULT 100000 NOT NULL,
+    `extract_period_millis` INTEGER DEFAULT 0 NOT NULL,
+    `enabled` SMALLINT DEFAULT 1 NOT NULL,
+    `use_old_data_to_route` SMALLINT DEFAULT 1 NOT NULL,
+    `use_row_data_to_route` SMALLINT DEFAULT 1 NOT NULL,
+    `use_pk_data_to_route` SMALLINT DEFAULT 1 NOT NULL,
+    `reload_flag` SMALLINT DEFAULT 0 NOT NULL,
+    `file_sync_flag` SMALLINT DEFAULT 0 NOT NULL,
+    `contains_big_lob` SMALLINT DEFAULT 0 NOT NULL,
+    `batch_algorithm` VARCHAR(50) DEFAULT 'default' NOT NULL,
+    `data_loader_type` VARCHAR(50) DEFAULT 'default' NOT NULL,
+    `description` VARCHAR(255) NULL,
+    `queue` VARCHAR(25) DEFAULT 'default' NOT NULL,
+    `max_network_kbps` DECIMAL(10,3) DEFAULT 0.000 NOT NULL,
+    `data_event_action` CHAR(1) NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`channel_id`)
+)
+2020-12-14 19:51:12,686 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_conflict`(
+    `conflict_id` VARCHAR(50) NOT NULL,
+    `source_node_group_id` VARCHAR(50) NOT NULL,
+    `target_node_group_id` VARCHAR(50) NOT NULL,
+    `target_channel_id` VARCHAR(128) NULL,
+    `target_catalog_name` VARCHAR(255) NULL,
+    `target_schema_name` VARCHAR(255) NULL,
+    `target_table_name` VARCHAR(255) NULL,
+    `detect_type` VARCHAR(128) NOT NULL,
+    `detect_expression` MEDIUMTEXT NULL,
+    `resolve_type` VARCHAR(128) NOT NULL,
+    `ping_back` VARCHAR(128) NOT NULL,
+    `resolve_changes_only` SMALLINT DEFAULT 0,
+    `resolve_row_only` SMALLINT DEFAULT 0,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`conflict_id`)
+)
+2020-12-14 19:51:12,694 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_context`(
+    `name` VARCHAR(80) NOT NULL,
+    `context_value` MEDIUMTEXT NULL,
+    `create_time` DATETIME,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`name`)
+)
+2020-12-14 19:51:12,700 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_data`(
+    `data_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `table_name` VARCHAR(255) NOT NULL,
+    `event_type` CHAR(1) NOT NULL,
+    `row_data` MEDIUMTEXT NULL,
+    `pk_data` MEDIUMTEXT NULL,
+    `old_data` MEDIUMTEXT NULL,
+    `trigger_hist_id` INTEGER NOT NULL,
+    `channel_id` VARCHAR(128) NULL,
+    `transaction_id` VARCHAR(255) NULL,
+    `source_node_id` VARCHAR(50) NULL,
+    `external_data` VARCHAR(50) NULL,
+    `node_list` VARCHAR(255) NULL,
+    `is_prerouted` SMALLINT DEFAULT 0 NOT NULL,
+    `create_time` DATETIME,
+    PRIMARY KEY (`data_id`)
+)
+2020-12-14 19:51:12,708 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE UNIQUE INDEX `sym_idx_d_channel_id` ON `sym_data` (`data_id`, `channel_id`)
+2020-12-14 19:51:12,714 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_data_event`(
+    `data_id` BIGINT NOT NULL,
+    `batch_id` BIGINT NOT NULL,
+    `create_time` DATETIME,
+    PRIMARY KEY (`data_id`, `batch_id`)
+)
+2020-12-14 19:51:12,722 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_de_batchid` ON `sym_data_event` (`batch_id`)
+2020-12-14 19:51:12,729 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_data_gap`(
+    `start_id` BIGINT NOT NULL,
+    `end_id` BIGINT NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_hostname` VARCHAR(255) NULL,
+    PRIMARY KEY (`start_id`, `end_id`)
+)
+2020-12-14 19:51:12,735 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_extension`(
+    `extension_id` VARCHAR(50) NOT NULL,
+    `extension_type` VARCHAR(10) NOT NULL,
+    `interface_name` VARCHAR(255) NULL,
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `enabled` SMALLINT DEFAULT 1 NOT NULL,
+    `extension_order` INTEGER DEFAULT 1 NOT NULL,
+    `extension_text` MEDIUMTEXT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`extension_id`)
+)
+2020-12-14 19:51:12,742 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_extract_request`(
+    `request_id` BIGINT NOT NULL,
+    `node_id` VARCHAR(50) NOT NULL,
+    `queue` VARCHAR(128) NULL,
+    `status` CHAR(2) NULL,
+    `start_batch_id` BIGINT NOT NULL,
+    `end_batch_id` BIGINT NOT NULL,
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `router_id` VARCHAR(50) NOT NULL,
+    `load_id` BIGINT,
+    `table_name` VARCHAR(255) NULL,
+    `extracted_rows` BIGINT DEFAULT 0 NOT NULL,
+    `extracted_millis` BIGINT DEFAULT 0 NOT NULL,
+    `transferred_rows` BIGINT DEFAULT 0 NOT NULL,
+    `transferred_millis` BIGINT DEFAULT 0 NOT NULL,
+    `last_transferred_batch_id` BIGINT,
+    `loaded_rows` BIGINT DEFAULT 0 NOT NULL,
+    `loaded_millis` BIGINT DEFAULT 0 NOT NULL,
+    `last_loaded_batch_id` BIGINT,
+    `total_rows` BIGINT,
+    `loaded_time` DATETIME,
+    `parent_request_id` BIGINT DEFAULT 0 NOT NULL,
+    `last_update_time` DATETIME,
+    `create_time` DATETIME,
+    PRIMARY KEY (`request_id`)
+)
+2020-12-14 19:51:12,750 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_file_incoming`(
+    `relative_dir` VARCHAR(255) NOT NULL,
+    `file_name` VARCHAR(128) NOT NULL,
+    `last_event_type` CHAR(1) NOT NULL,
+    `node_id` VARCHAR(50) NOT NULL,
+    `file_modified_time` BIGINT,
+    PRIMARY KEY (`relative_dir`, `file_name`)
+)
+2020-12-14 19:51:12,757 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_file_snapshot`(
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `router_id` VARCHAR(50) NOT NULL,
+    `relative_dir` VARCHAR(255) NOT NULL,
+    `file_name` VARCHAR(128) NOT NULL,
+    `channel_id` VARCHAR(128) DEFAULT 'filesync' NOT NULL,
+    `reload_channel_id` VARCHAR(128) DEFAULT 'filesync_reload' NOT NULL,
+    `last_event_type` CHAR(1) NOT NULL,
+    `crc32_checksum` BIGINT,
+    `file_size` BIGINT,
+    `file_modified_time` BIGINT,
+    `last_update_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `create_time` DATETIME NOT NULL,
+    PRIMARY KEY (`trigger_id`, `router_id`, `relative_dir`, `file_name`)
+)
+2020-12-14 19:51:12,764 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_f_snpsht_chid` ON `sym_file_snapshot` (`reload_channel_id`)
+2020-12-14 19:51:12,770 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_file_trigger`(
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `channel_id` VARCHAR(128) DEFAULT 'filesync' NOT NULL,
+    `reload_channel_id` VARCHAR(128) DEFAULT 'filesync_reload' NOT NULL,
+    `base_dir` VARCHAR(255) NOT NULL,
+    `recurse` SMALLINT DEFAULT 1 NOT NULL,
+    `includes_files` VARCHAR(255) NULL,
+    `excludes_files` VARCHAR(255) NULL,
+    `sync_on_create` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_modified` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_delete` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_ctl_file` SMALLINT DEFAULT 0 NOT NULL,
+    `delete_after_sync` SMALLINT DEFAULT 0 NOT NULL,
+    `before_copy_script` MEDIUMTEXT NULL,
+    `after_copy_script` MEDIUMTEXT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`trigger_id`)
+)
+2020-12-14 19:51:12,777 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_file_trigger_router`(
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `router_id` VARCHAR(50) NOT NULL,
+    `enabled` SMALLINT DEFAULT 1 NOT NULL,
+    `initial_load_enabled` SMALLINT DEFAULT 1 NOT NULL,
+    `target_base_dir` VARCHAR(255) NULL,
+    `conflict_strategy` VARCHAR(128) DEFAULT 'source_wins' NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`trigger_id`, `router_id`)
+)
+2020-12-14 19:51:12,784 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_grouplet`(
+    `grouplet_id` VARCHAR(50) NOT NULL,
+    `grouplet_link_policy` CHAR(1) DEFAULT 'I' NOT NULL,
+    `description` VARCHAR(255) NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`grouplet_id`)
+)
+2020-12-14 19:51:12,791 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_grouplet_link`(
+    `grouplet_id` VARCHAR(50) NOT NULL,
+    `external_id` VARCHAR(255) NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`grouplet_id`, `external_id`)
+)
+2020-12-14 19:51:12,799 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_incoming_batch`(
+    `batch_id` BIGINT NOT NULL,
+    `node_id` VARCHAR(50) NOT NULL,
+    `channel_id` VARCHAR(128) NULL,
+    `status` CHAR(2) NULL,
+    `error_flag` SMALLINT DEFAULT 0,
+    `sql_state` VARCHAR(10) NULL,
+    `sql_code` INTEGER DEFAULT 0 NOT NULL,
+    `sql_message` MEDIUMTEXT NULL,
+    `last_update_hostname` VARCHAR(255) NULL,
+    `last_update_time` DATETIME,
+    `create_time` DATETIME,
+    `summary` VARCHAR(255) NULL,
+    `ignore_count` INTEGER DEFAULT 0 NOT NULL,
+    `byte_count` BIGINT DEFAULT 0 NOT NULL,
+    `load_flag` SMALLINT DEFAULT 0,
+    `extract_count` INTEGER DEFAULT 0 NOT NULL,
+    `sent_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_count` INTEGER DEFAULT 0 NOT NULL,
+    `reload_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `other_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_insert_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_update_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_delete_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_insert_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_update_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_delete_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_insert_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_update_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_delete_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `network_millis` INTEGER DEFAULT 0 NOT NULL,
+    `filter_millis` INTEGER DEFAULT 0 NOT NULL,
+    `load_millis` INTEGER DEFAULT 0 NOT NULL,
+    `router_millis` INTEGER DEFAULT 0 NOT NULL,
+    `extract_millis` INTEGER DEFAULT 0 NOT NULL,
+    `transform_extract_millis` INTEGER DEFAULT 0 NOT NULL,
+    `transform_load_millis` INTEGER DEFAULT 0 NOT NULL,
+    `load_id` BIGINT,
+    `common_flag` SMALLINT DEFAULT 0,
+    `fallback_insert_count` INTEGER DEFAULT 0 NOT NULL,
+    `fallback_update_count` INTEGER DEFAULT 0 NOT NULL,
+    `ignore_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `missing_delete_count` INTEGER DEFAULT 0 NOT NULL,
+    `skip_count` INTEGER DEFAULT 0 NOT NULL,
+    `failed_row_number` INTEGER DEFAULT 0 NOT NULL,
+    `failed_line_number` INTEGER DEFAULT 0 NOT NULL,
+    `failed_data_id` BIGINT DEFAULT 0 NOT NULL,
+    PRIMARY KEY (`batch_id`, `node_id`)
+)
+2020-12-14 19:51:12,807 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_ib_time_status` ON `sym_incoming_batch` (`create_time`, `status`)
+2020-12-14 19:51:12,815 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_ib_in_error` ON `sym_incoming_batch` (`error_flag`)
+2020-12-14 19:51:12,822 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_incoming_error`(
+    `batch_id` BIGINT NOT NULL,
+    `node_id` VARCHAR(50) NOT NULL,
+    `failed_row_number` BIGINT NOT NULL,
+    `failed_line_number` BIGINT DEFAULT 0 NOT NULL,
+    `target_catalog_name` VARCHAR(255) NULL,
+    `target_schema_name` VARCHAR(255) NULL,
+    `target_table_name` VARCHAR(255) NOT NULL,
+    `event_type` CHAR(1) NOT NULL,
+    `binary_encoding` VARCHAR(10) DEFAULT 'HEX' NOT NULL,
+    `column_names` MEDIUMTEXT NOT NULL,
+    `pk_column_names` MEDIUMTEXT NOT NULL,
+    `row_data` MEDIUMTEXT NULL,
+    `old_data` MEDIUMTEXT NULL,
+    `cur_data` MEDIUMTEXT NULL,
+    `resolve_data` MEDIUMTEXT NULL,
+    `resolve_ignore` SMALLINT DEFAULT 0,
+    `conflict_id` VARCHAR(50) NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`batch_id`, `node_id`, `failed_row_number`)
+)
+2020-12-14 19:51:12,830 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_job`(
+    `job_name` VARCHAR(50) NOT NULL,
+    `job_type` VARCHAR(10) NOT NULL,
+    `requires_registration` SMALLINT DEFAULT 1 NOT NULL,
+    `job_expression` MEDIUMTEXT NULL,
+    `description` VARCHAR(255) NULL,
+    `default_schedule` VARCHAR(50) NULL,
+    `default_auto_start` SMALLINT DEFAULT 1 NOT NULL,
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `create_by` VARCHAR(50) NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`job_name`)
+)
+2020-12-14 19:51:12,836 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_load_filter`(
+    `load_filter_id` VARCHAR(50) NOT NULL,
+    `load_filter_type` VARCHAR(10) NOT NULL,
+    `source_node_group_id` VARCHAR(50) NOT NULL,
+    `target_node_group_id` VARCHAR(50) NOT NULL,
+    `target_catalog_name` VARCHAR(255) NULL,
+    `target_schema_name` VARCHAR(255) NULL,
+    `target_table_name` VARCHAR(255) NULL,
+    `filter_on_update` SMALLINT DEFAULT 1 NOT NULL,
+    `filter_on_insert` SMALLINT DEFAULT 1 NOT NULL,
+    `filter_on_delete` SMALLINT DEFAULT 1 NOT NULL,
+    `before_write_script` MEDIUMTEXT NULL,
+    `after_write_script` MEDIUMTEXT NULL,
+    `batch_complete_script` MEDIUMTEXT NULL,
+    `batch_commit_script` MEDIUMTEXT NULL,
+    `batch_rollback_script` MEDIUMTEXT NULL,
+    `handle_error_script` MEDIUMTEXT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    `load_filter_order` INTEGER DEFAULT 1 NOT NULL,
+    `fail_on_error` SMALLINT DEFAULT 0 NOT NULL,
+    PRIMARY KEY (`load_filter_id`)
+)
+2020-12-14 19:51:12,843 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_lock`(
+    `lock_action` VARCHAR(50) NOT NULL,
+    `lock_type` VARCHAR(50) NOT NULL,
+    `locking_server_id` VARCHAR(255) NULL,
+    `lock_time` DATETIME,
+    `shared_count` INTEGER DEFAULT 0 NOT NULL,
+    `shared_enable` INTEGER DEFAULT 0 NOT NULL,
+    `last_lock_time` DATETIME,
+    `last_locking_server_id` VARCHAR(255) NULL,
+    PRIMARY KEY (`lock_action`)
+)
+2020-12-14 19:51:12,853 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `external_id` VARCHAR(255) NOT NULL,
+    `sync_enabled` SMALLINT DEFAULT 0,
+    `sync_url` VARCHAR(255) NULL,
+    `schema_version` VARCHAR(50) NULL,
+    `symmetric_version` VARCHAR(50) NULL,
+    `config_version` VARCHAR(50) NULL,
+    `database_type` VARCHAR(50) NULL,
+    `database_version` VARCHAR(50) NULL,
+    `database_name` VARCHAR(50) NULL,
+    `batch_to_send_count` INTEGER DEFAULT 0,
+    `batch_in_error_count` INTEGER DEFAULT 0,
+    `created_at_node_id` VARCHAR(50) NULL,
+    `deployment_type` VARCHAR(50) NULL,
+    `deployment_sub_type` VARCHAR(50) NULL,
+    PRIMARY KEY (`node_id`)
+)
+2020-12-14 19:51:12,863 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_communication`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `queue` VARCHAR(25) DEFAULT 'default' NOT NULL,
+    `communication_type` VARCHAR(10) NOT NULL,
+    `lock_time` DATETIME,
+    `locking_server_id` VARCHAR(255) NULL,
+    `last_lock_time` DATETIME,
+    `last_lock_millis` BIGINT DEFAULT 0,
+    `success_count` BIGINT DEFAULT 0,
+    `fail_count` BIGINT DEFAULT 0,
+    `skip_count` BIGINT DEFAULT 0,
+    `total_success_count` BIGINT DEFAULT 0,
+    `total_fail_count` BIGINT DEFAULT 0,
+    `total_success_millis` BIGINT DEFAULT 0,
+    `total_fail_millis` BIGINT DEFAULT 0,
+    `batch_to_send_count` BIGINT DEFAULT 0,
+    `node_priority` INTEGER DEFAULT 0,
+    PRIMARY KEY (`node_id`, `queue`, `communication_type`)
+)
+2020-12-14 19:51:12,870 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_channel_ctl`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `channel_id` VARCHAR(128) NOT NULL,
+    `suspend_enabled` SMALLINT DEFAULT 0,
+    `ignore_enabled` SMALLINT DEFAULT 0,
+    `last_extract_time` DATETIME,
+    PRIMARY KEY (`node_id`, `channel_id`)
+)
+2020-12-14 19:51:12,877 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_group`(
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `description` VARCHAR(255) NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`node_group_id`)
+)
+2020-12-14 19:51:12,884 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_group_channel_wnd`(
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `channel_id` VARCHAR(128) NOT NULL,
+    `start_time` DATETIME NOT NULL,
+    `end_time` DATETIME NOT NULL,
+    `enabled` SMALLINT DEFAULT 0 NOT NULL,
+    PRIMARY KEY (`node_group_id`, `channel_id`, `start_time`, `end_time`)
+)
+2020-12-14 19:51:12,891 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_group_link`(
+    `source_node_group_id` VARCHAR(50) NOT NULL,
+    `target_node_group_id` VARCHAR(50) NOT NULL,
+    `data_event_action` CHAR(1) DEFAULT 'W' NOT NULL,
+    `sync_config_enabled` SMALLINT DEFAULT 1 NOT NULL,
+    `is_reversible` SMALLINT DEFAULT 0 NOT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`source_node_group_id`, `target_node_group_id`)
+)
+2020-12-14 19:51:12,898 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_host`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `host_name` VARCHAR(60) NOT NULL,
+    `instance_id` VARCHAR(60) NULL,
+    `ip_address` VARCHAR(50) NULL,
+    `os_user` VARCHAR(50) NULL,
+    `os_name` VARCHAR(50) NULL,
+    `os_arch` VARCHAR(50) NULL,
+    `os_version` VARCHAR(50) NULL,
+    `available_processors` INTEGER DEFAULT 0,
+    `free_memory_bytes` BIGINT DEFAULT 0,
+    `total_memory_bytes` BIGINT DEFAULT 0,
+    `max_memory_bytes` BIGINT DEFAULT 0,
+    `java_version` VARCHAR(50) NULL,
+    `java_vendor` VARCHAR(255) NULL,
+    `jdbc_version` VARCHAR(255) NULL,
+    `symmetric_version` VARCHAR(50) NULL,
+    `timezone_offset` VARCHAR(6) NULL,
+    `heartbeat_time` DATETIME,
+    `last_restart_time` DATETIME NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    PRIMARY KEY (`node_id`, `host_name`)
+)
+2020-12-14 19:51:12,906 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_host_channel_stats`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `host_name` VARCHAR(60) NOT NULL,
+    `channel_id` VARCHAR(128) NOT NULL,
+    `start_time` DATETIME NOT NULL,
+    `end_time` DATETIME NOT NULL,
+    `data_routed` BIGINT DEFAULT 0,
+    `data_unrouted` BIGINT DEFAULT 0,
+    `data_event_inserted` BIGINT DEFAULT 0,
+    `data_extracted` BIGINT DEFAULT 0,
+    `data_bytes_extracted` BIGINT DEFAULT 0,
+    `data_extracted_errors` BIGINT DEFAULT 0,
+    `data_bytes_sent` BIGINT DEFAULT 0,
+    `data_sent` BIGINT DEFAULT 0,
+    `data_sent_errors` BIGINT DEFAULT 0,
+    `data_loaded` BIGINT DEFAULT 0,
+    `data_bytes_loaded` BIGINT DEFAULT 0,
+    `data_loaded_errors` BIGINT DEFAULT 0,
+    `data_loaded_outgoing` BIGINT DEFAULT 0,
+    `data_bytes_loaded_outgoing` BIGINT DEFAULT 0,
+    `data_loaded_outgoing_errors` BIGINT DEFAULT 0,
+    PRIMARY KEY (`node_id`, `host_name`, `channel_id`, `start_time`, `end_time`)
+)
+2020-12-14 19:51:12,912 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_nd_hst_chnl_sts` ON `sym_node_host_channel_stats` (`node_id`, `start_time`, `end_time`)
+2020-12-14 19:51:12,919 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_host_job_stats`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `host_name` VARCHAR(60) NOT NULL,
+    `job_name` VARCHAR(50) NOT NULL,
+    `start_time` DATETIME NOT NULL,
+    `end_time` DATETIME NOT NULL,
+    `processed_count` BIGINT DEFAULT 0,
+    `target_node_id` VARCHAR(50) NULL,
+    `target_node_count` INTEGER DEFAULT 0,
+    PRIMARY KEY (`node_id`, `host_name`, `job_name`, `start_time`, `end_time`)
+)
+2020-12-14 19:51:12,927 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_nd_hst_job` ON `sym_node_host_job_stats` (`node_id`, `start_time`, `end_time`)
+2020-12-14 19:51:12,934 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_host_stats`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `host_name` VARCHAR(60) NOT NULL,
+    `start_time` DATETIME NOT NULL,
+    `end_time` DATETIME NOT NULL,
+    `restarted` BIGINT DEFAULT 0 NOT NULL,
+    `nodes_pulled` BIGINT DEFAULT 0,
+    `total_nodes_pull_time` BIGINT DEFAULT 0,
+    `nodes_pushed` BIGINT DEFAULT 0,
+    `total_nodes_push_time` BIGINT DEFAULT 0,
+    `nodes_rejected` BIGINT DEFAULT 0,
+    `nodes_registered` BIGINT DEFAULT 0,
+    `nodes_loaded` BIGINT DEFAULT 0,
+    `nodes_disabled` BIGINT DEFAULT 0,
+    `purged_data_rows` BIGINT DEFAULT 0,
+    `purged_data_event_rows` BIGINT DEFAULT 0,
+    `purged_batch_outgoing_rows` BIGINT DEFAULT 0,
+    `purged_batch_incoming_rows` BIGINT DEFAULT 0,
+    `triggers_created_count` BIGINT,
+    `triggers_rebuilt_count` BIGINT,
+    `triggers_removed_count` BIGINT,
+    PRIMARY KEY (`node_id`, `host_name`, `start_time`, `end_time`)
+)
+2020-12-14 19:51:12,941 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_nd_hst_sts` ON `sym_node_host_stats` (`node_id`, `start_time`, `end_time`)
+2020-12-14 19:51:12,948 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_identity`(
+    `node_id` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`node_id`)
+)
+2020-12-14 19:51:12,955 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_node_security`(
+    `node_id` VARCHAR(50) NOT NULL,
+    `node_password` VARCHAR(50) NOT NULL,
+    `registration_enabled` SMALLINT DEFAULT 0,
+    `registration_time` DATETIME,
+    `initial_load_enabled` SMALLINT DEFAULT 0,
+    `initial_load_time` DATETIME,
+    `initial_load_end_time` DATETIME,
+    `initial_load_id` BIGINT,
+    `initial_load_create_by` VARCHAR(255) NULL,
+    `rev_initial_load_enabled` SMALLINT DEFAULT 0,
+    `rev_initial_load_time` DATETIME,
+    `rev_initial_load_id` BIGINT,
+    `rev_initial_load_create_by` VARCHAR(255) NULL,
+    `failed_logins` SMALLINT DEFAULT 0,
+    `created_at_node_id` VARCHAR(50) NULL,
+    PRIMARY KEY (`node_id`)
+)
+2020-12-14 19:51:12,962 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_monitor`(
+    `monitor_id` VARCHAR(128) NOT NULL,
+    `node_group_id` VARCHAR(50) DEFAULT 'ALL' NOT NULL,
+    `external_id` VARCHAR(255) DEFAULT 'ALL' NOT NULL,
+    `type` VARCHAR(50) NOT NULL,
+    `expression` MEDIUMTEXT NULL,
+    `threshold` BIGINT DEFAULT 0 NOT NULL,
+    `run_period` INTEGER DEFAULT 0 NOT NULL,
+    `run_count` INTEGER DEFAULT 0 NOT NULL,
+    `severity_level` INTEGER DEFAULT 0 NOT NULL,
+    `enabled` SMALLINT DEFAULT 0 NOT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`monitor_id`)
+)
+2020-12-14 19:51:12,970 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_monitor_event`(
+    `monitor_id` VARCHAR(128) NOT NULL,
+    `node_id` VARCHAR(50) NOT NULL,
+    `event_time` DATETIME NOT NULL,
+    `host_name` VARCHAR(60) NULL,
+    `type` VARCHAR(50) NOT NULL,
+    `threshold` BIGINT DEFAULT 0 NOT NULL,
+    `event_value` BIGINT DEFAULT 0 NOT NULL,
+    `event_count` INTEGER DEFAULT 0 NOT NULL,
+    `severity_level` INTEGER DEFAULT 0 NOT NULL,
+    `is_resolved` SMALLINT DEFAULT 0 NOT NULL,
+    `is_notified` SMALLINT DEFAULT 0 NOT NULL,
+    `details` MEDIUMTEXT NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`monitor_id`, `node_id`, `event_time`)
+)
+2020-12-14 19:51:12,976 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_notification`(
+    `notification_id` VARCHAR(128) NOT NULL,
+    `node_group_id` VARCHAR(50) DEFAULT 'ALL' NOT NULL,
+    `external_id` VARCHAR(255) DEFAULT 'ALL' NOT NULL,
+    `severity_level` INTEGER DEFAULT 0 NOT NULL,
+    `type` VARCHAR(50) NOT NULL,
+    `expression` MEDIUMTEXT NULL,
+    `enabled` SMALLINT DEFAULT 0 NOT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`notification_id`)
+)
+2020-12-14 19:51:12,983 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_outgoing_batch`(
+    `batch_id` BIGINT NOT NULL,
+    `node_id` VARCHAR(50) NOT NULL,
+    `channel_id` VARCHAR(128) NULL,
+    `status` CHAR(2) NULL,
+    `error_flag` SMALLINT DEFAULT 0,
+    `sql_state` VARCHAR(10) NULL,
+    `sql_code` INTEGER DEFAULT 0 NOT NULL,
+    `sql_message` MEDIUMTEXT NULL,
+    `last_update_hostname` VARCHAR(255) NULL,
+    `last_update_time` DATETIME,
+    `create_time` DATETIME,
+    `summary` VARCHAR(255) NULL,
+    `ignore_count` INTEGER DEFAULT 0 NOT NULL,
+    `byte_count` BIGINT DEFAULT 0 NOT NULL,
+    `load_flag` SMALLINT DEFAULT 0,
+    `extract_count` INTEGER DEFAULT 0 NOT NULL,
+    `sent_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_count` INTEGER DEFAULT 0 NOT NULL,
+    `reload_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `other_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_insert_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_update_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `data_delete_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_insert_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_update_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `extract_delete_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_insert_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_update_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `load_delete_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `network_millis` INTEGER DEFAULT 0 NOT NULL,
+    `filter_millis` INTEGER DEFAULT 0 NOT NULL,
+    `load_millis` INTEGER DEFAULT 0 NOT NULL,
+    `router_millis` INTEGER DEFAULT 0 NOT NULL,
+    `extract_millis` INTEGER DEFAULT 0 NOT NULL,
+    `transform_extract_millis` INTEGER DEFAULT 0 NOT NULL,
+    `transform_load_millis` INTEGER DEFAULT 0 NOT NULL,
+    `load_id` BIGINT,
+    `common_flag` SMALLINT DEFAULT 0,
+    `fallback_insert_count` INTEGER DEFAULT 0 NOT NULL,
+    `fallback_update_count` INTEGER DEFAULT 0 NOT NULL,
+    `ignore_row_count` INTEGER DEFAULT 0 NOT NULL,
+    `missing_delete_count` INTEGER DEFAULT 0 NOT NULL,
+    `skip_count` INTEGER DEFAULT 0 NOT NULL,
+    `total_extract_millis` INTEGER DEFAULT 0 NOT NULL,
+    `total_load_millis` INTEGER DEFAULT 0 NOT NULL,
+    `extract_job_flag` SMALLINT DEFAULT 0,
+    `extract_start_time` DATETIME,
+    `transfer_start_time` DATETIME,
+    `load_start_time` DATETIME,
+    `failed_data_id` BIGINT DEFAULT 0 NOT NULL,
+    `failed_line_number` BIGINT DEFAULT 0 NOT NULL,
+    `create_by` VARCHAR(255) NULL,
+    PRIMARY KEY (`batch_id`, `node_id`)
+)
+2020-12-14 19:51:12,990 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_ob_node_status` ON `sym_outgoing_batch` (`node_id`, `status`)
+2020-12-14 19:51:12,996 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_ob_status` ON `sym_outgoing_batch` (`status`)
+2020-12-14 19:51:13,002 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_ob_in_error` ON `sym_outgoing_batch` (`error_flag`)
+2020-12-14 19:51:13,008 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_parameter`(
+    `external_id` VARCHAR(255) NOT NULL,
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `param_key` VARCHAR(80) NOT NULL,
+    `param_value` MEDIUMTEXT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    PRIMARY KEY (`external_id`, `node_group_id`, `param_key`)
+)
+2020-12-14 19:51:13,014 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_registration_redirect`(
+    `registrant_external_id` VARCHAR(255) NOT NULL,
+    `registration_node_id` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`registrant_external_id`)
+)
+2020-12-14 19:51:13,020 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_registration_request`(
+    `node_group_id` VARCHAR(50) NOT NULL,
+    `external_id` VARCHAR(255) NOT NULL,
+    `status` CHAR(2) NOT NULL,
+    `host_name` VARCHAR(60) NOT NULL,
+    `ip_address` VARCHAR(50) NOT NULL,
+    `attempt_count` INTEGER DEFAULT 0,
+    `registered_node_id` VARCHAR(50) NULL,
+    `error_message` MEDIUMTEXT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`node_group_id`, `external_id`, `create_time`)
+)
+2020-12-14 19:51:13,026 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_reg_req_1` ON `sym_registration_request` (`node_group_id`, `external_id`, `status`, `host_name`, `ip_address`)
+2020-12-14 19:51:13,031 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_reg_req_2` ON `sym_registration_request` (`status`)
+2020-12-14 19:51:13,037 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_router`(
+    `router_id` VARCHAR(50) NOT NULL,
+    `target_catalog_name` VARCHAR(255) NULL,
+    `target_schema_name` VARCHAR(255) NULL,
+    `target_table_name` VARCHAR(255) NULL,
+    `source_node_group_id` VARCHAR(50) NOT NULL,
+    `target_node_group_id` VARCHAR(50) NOT NULL,
+    `router_type` VARCHAR(50) DEFAULT 'default' NOT NULL,
+    `router_expression` MEDIUMTEXT NULL,
+    `sync_on_update` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_insert` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_delete` SMALLINT DEFAULT 1 NOT NULL,
+    `use_source_catalog_schema` SMALLINT DEFAULT 1 NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`router_id`)
+)
+2020-12-14 19:51:13,044 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_sequence`(
+    `sequence_name` VARCHAR(50) NOT NULL,
+    `current_value` BIGINT DEFAULT 0 NOT NULL,
+    `increment_by` INTEGER DEFAULT 1 NOT NULL,
+    `min_value` BIGINT DEFAULT 1 NOT NULL,
+    `max_value` BIGINT DEFAULT 9999999999 NOT NULL,
+    `cycle_flag` SMALLINT DEFAULT 0,
+    `cache_size` INTEGER DEFAULT 0 NOT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`sequence_name`)
+)
+2020-12-14 19:51:13,050 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_table_reload_request`(
+    `target_node_id` VARCHAR(50) NOT NULL,
+    `source_node_id` VARCHAR(50) NOT NULL,
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `router_id` VARCHAR(50) NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `create_table` SMALLINT DEFAULT 0 NOT NULL,
+    `delete_first` SMALLINT DEFAULT 0 NOT NULL,
+    `reload_select` MEDIUMTEXT NULL,
+    `before_custom_sql` MEDIUMTEXT NULL,
+    `reload_time` DATETIME,
+    `load_id` BIGINT,
+    `processed` SMALLINT DEFAULT 0 NOT NULL,
+    `channel_id` VARCHAR(128) NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`target_node_id`, `source_node_id`, `trigger_id`, `router_id`, `create_time`)
+)
+2020-12-14 19:51:13,057 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_table_reload_status`(
+    `load_id` BIGINT NOT NULL,
+    `source_node_id` VARCHAR(50) NOT NULL,
+    `target_node_id` VARCHAR(50) NOT NULL,
+    `start_time` DATETIME,
+    `end_time` DATETIME,
+    `completed` SMALLINT DEFAULT 0 NOT NULL,
+    `cancelled` SMALLINT DEFAULT 0 NOT NULL,
+    `full_load` SMALLINT DEFAULT 0 NOT NULL,
+    `start_data_batch_id` BIGINT,
+    `end_data_batch_id` BIGINT,
+    `setup_batch_count` BIGINT DEFAULT 0 NOT NULL,
+    `data_batch_count` BIGINT DEFAULT 0 NOT NULL,
+    `finalize_batch_count` BIGINT DEFAULT 0 NOT NULL,
+    `setup_batch_loaded` BIGINT DEFAULT 0 NOT NULL,
+    `data_batch_loaded` BIGINT DEFAULT 0 NOT NULL,
+    `finalize_batch_loaded` BIGINT DEFAULT 0 NOT NULL,
+    `table_count` BIGINT DEFAULT 0 NOT NULL,
+    `rows_loaded` BIGINT DEFAULT 0 NOT NULL,
+    `rows_count` BIGINT DEFAULT 0 NOT NULL,
+    `error_flag` SMALLINT DEFAULT 0 NOT NULL,
+    `sql_state` VARCHAR(10) NULL,
+    `sql_code` INTEGER DEFAULT 0 NOT NULL,
+    `sql_message` MEDIUMTEXT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`load_id`, `source_node_id`)
+)
+2020-12-14 19:51:13,066 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_transform_table`(
+    `transform_id` VARCHAR(50) NOT NULL,
+    `source_node_group_id` VARCHAR(50) NOT NULL,
+    `target_node_group_id` VARCHAR(50) NOT NULL,
+    `transform_point` VARCHAR(10) NOT NULL,
+    `source_catalog_name` VARCHAR(255) NULL,
+    `source_schema_name` VARCHAR(255) NULL,
+    `source_table_name` VARCHAR(255) NOT NULL,
+    `target_catalog_name` VARCHAR(255) NULL,
+    `target_schema_name` VARCHAR(255) NULL,
+    `target_table_name` VARCHAR(255) NULL,
+    `update_first` SMALLINT DEFAULT 0,
+    `update_action` VARCHAR(255) DEFAULT 'UPDATE_COL' NOT NULL,
+    `delete_action` VARCHAR(10) NOT NULL,
+    `transform_order` INTEGER DEFAULT 1 NOT NULL,
+    `column_policy` VARCHAR(10) DEFAULT 'SPECIFIED' NOT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`transform_id`, `source_node_group_id`, `target_node_group_id`)
+)
+2020-12-14 19:51:13,072 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_transform_column`(
+    `transform_id` VARCHAR(50) NOT NULL,
+    `include_on` CHAR(1) DEFAULT '*' NOT NULL,
+    `target_column_name` VARCHAR(128) NOT NULL,
+    `source_column_name` VARCHAR(128) NULL,
+    `pk` SMALLINT DEFAULT 0,
+    `transform_type` VARCHAR(50) DEFAULT 'copy' NULL,
+    `transform_expression` MEDIUMTEXT NULL,
+    `transform_order` INTEGER DEFAULT 1 NOT NULL,
+    `create_time` DATETIME,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`transform_id`, `include_on`, `target_column_name`)
+)
+2020-12-14 19:51:13,080 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_trigger`(
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `source_catalog_name` VARCHAR(255) NULL,
+    `source_schema_name` VARCHAR(255) NULL,
+    `source_table_name` VARCHAR(255) NOT NULL,
+    `channel_id` VARCHAR(128) NOT NULL,
+    `reload_channel_id` VARCHAR(128) DEFAULT 'reload' NOT NULL,
+    `sync_on_update` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_insert` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_delete` SMALLINT DEFAULT 1 NOT NULL,
+    `sync_on_incoming_batch` SMALLINT DEFAULT 0 NOT NULL,
+    `name_for_update_trigger` VARCHAR(255) NULL,
+    `name_for_insert_trigger` VARCHAR(255) NULL,
+    `name_for_delete_trigger` VARCHAR(255) NULL,
+    `sync_on_update_condition` MEDIUMTEXT NULL,
+    `sync_on_insert_condition` MEDIUMTEXT NULL,
+    `sync_on_delete_condition` MEDIUMTEXT NULL,
+    `custom_before_update_text` MEDIUMTEXT NULL,
+    `custom_before_insert_text` MEDIUMTEXT NULL,
+    `custom_before_delete_text` MEDIUMTEXT NULL,
+    `custom_on_update_text` MEDIUMTEXT NULL,
+    `custom_on_insert_text` MEDIUMTEXT NULL,
+    `custom_on_delete_text` MEDIUMTEXT NULL,
+    `external_select` MEDIUMTEXT NULL,
+    `tx_id_expression` MEDIUMTEXT NULL,
+    `channel_expression` MEDIUMTEXT NULL,
+    `excluded_column_names` MEDIUMTEXT NULL,
+    `included_column_names` MEDIUMTEXT NULL,
+    `sync_key_names` MEDIUMTEXT NULL,
+    `use_stream_lobs` SMALLINT DEFAULT 0 NOT NULL,
+    `use_capture_lobs` SMALLINT DEFAULT 0 NOT NULL,
+    `use_capture_old_data` SMALLINT DEFAULT 1 NOT NULL,
+    `use_handle_key_updates` SMALLINT DEFAULT 1 NOT NULL,
+    `stream_row` SMALLINT DEFAULT 0 NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`trigger_id`)
+)
+2020-12-14 19:51:13,088 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_trigger_hist`(
+    `trigger_hist_id` INTEGER NOT NULL,
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `source_table_name` VARCHAR(255) NOT NULL,
+    `source_catalog_name` VARCHAR(255) NULL,
+    `source_schema_name` VARCHAR(255) NULL,
+    `name_for_update_trigger` VARCHAR(255) NULL,
+    `name_for_insert_trigger` VARCHAR(255) NULL,
+    `name_for_delete_trigger` VARCHAR(255) NULL,
+    `table_hash` BIGINT DEFAULT 0 NOT NULL,
+    `trigger_row_hash` BIGINT DEFAULT 0 NOT NULL,
+    `trigger_template_hash` BIGINT DEFAULT 0 NOT NULL,
+    `column_names` MEDIUMTEXT NOT NULL,
+    `pk_column_names` MEDIUMTEXT NOT NULL,
+    `last_trigger_build_reason` CHAR(1) NOT NULL,
+    `error_message` MEDIUMTEXT NULL,
+    `create_time` DATETIME NOT NULL,
+    `inactive_time` DATETIME,
+    PRIMARY KEY (`trigger_hist_id`)
+)
+2020-12-14 19:51:13,096 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE INDEX `sym_idx_trigg_hist_1` ON `sym_trigger_hist` (`trigger_id`, `inactive_time`)
+2020-12-14 19:51:13,103 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_trigger_router`(
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `router_id` VARCHAR(50) NOT NULL,
+    `enabled` SMALLINT DEFAULT 1 NOT NULL,
+    `initial_load_order` INTEGER DEFAULT 1 NOT NULL,
+    `initial_load_select` MEDIUMTEXT NULL,
+    `initial_load_delete_stmt` MEDIUMTEXT NULL,
+    `ping_back_enabled` SMALLINT DEFAULT 0 NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    `description` MEDIUMTEXT NULL,
+    PRIMARY KEY (`trigger_id`, `router_id`)
+)
+2020-12-14 19:51:13,110 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: CREATE TABLE `sym_trigger_router_grouplet`(
+    `grouplet_id` VARCHAR(50) NOT NULL,
+    `trigger_id` VARCHAR(128) NOT NULL,
+    `router_id` VARCHAR(50) NOT NULL,
+    `applies_when` CHAR(1) NOT NULL,
+    `create_time` DATETIME NOT NULL,
+    `last_update_by` VARCHAR(50) NULL,
+    `last_update_time` DATETIME NOT NULL,
+    PRIMARY KEY (`grouplet_id`, `trigger_id`, `router_id`, `applies_when`)
+)
+2020-12-14 19:51:13,131 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_conflict`
+    ADD CONSTRAINT `sym_fk_cf_2_grp_lnk` FOREIGN KEY (`source_node_group_id`, `target_node_group_id`) REFERENCES `sym_node_group_link` (`source_node_group_id`, `target_node_group_id`)
+2020-12-14 19:51:13,150 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_file_trigger_router`
+    ADD CONSTRAINT `sym_fk_ftr_2_ftrg` FOREIGN KEY (`trigger_id`) REFERENCES `sym_file_trigger` (`trigger_id`)
+2020-12-14 19:51:13,169 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_file_trigger_router`
+    ADD CONSTRAINT `sym_fk_ftr_2_rtr` FOREIGN KEY (`router_id`) REFERENCES `sym_router` (`router_id`)
+2020-12-14 19:51:13,188 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_grouplet_link`
+    ADD CONSTRAINT `sym_fk_gpltlnk_2_gplt` FOREIGN KEY (`grouplet_id`) REFERENCES `sym_grouplet` (`grouplet_id`)
+2020-12-14 19:51:13,206 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_node_group_link`
+    ADD CONSTRAINT `sym_fk_lnk_2_grp_src` FOREIGN KEY (`source_node_group_id`) REFERENCES `sym_node_group` (`node_group_id`)
+2020-12-14 19:51:13,224 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_node_group_link`
+    ADD CONSTRAINT `sym_fk_lnk_2_grp_tgt` FOREIGN KEY (`target_node_group_id`) REFERENCES `sym_node_group` (`node_group_id`)
+2020-12-14 19:51:13,240 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_node_identity`
+    ADD CONSTRAINT `sym_fk_ident_2_node` FOREIGN KEY (`node_id`) REFERENCES `sym_node` (`node_id`)
+2020-12-14 19:51:13,257 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_node_security`
+    ADD CONSTRAINT `sym_fk_sec_2_node` FOREIGN KEY (`node_id`) REFERENCES `sym_node` (`node_id`)
+2020-12-14 19:51:13,272 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_router`
+    ADD CONSTRAINT `sym_fk_rt_2_grp_lnk` FOREIGN KEY (`source_node_group_id`, `target_node_group_id`) REFERENCES `sym_node_group_link` (`source_node_group_id`, `target_node_group_id`)
+2020-12-14 19:51:13,288 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_transform_table`
+    ADD CONSTRAINT `sym_fk_tt_2_grp_lnk` FOREIGN KEY (`source_node_group_id`, `target_node_group_id`) REFERENCES `sym_node_group_link` (`source_node_group_id`, `target_node_group_id`)
+2020-12-14 19:51:13,304 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_trigger`
+    ADD CONSTRAINT `sym_fk_trg_2_chnl` FOREIGN KEY (`channel_id`) REFERENCES `sym_channel` (`channel_id`)
+2020-12-14 19:51:13,321 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_trigger`
+    ADD CONSTRAINT `sym_fk_trg_2_rld_chnl` FOREIGN KEY (`reload_channel_id`) REFERENCES `sym_channel` (`channel_id`)
+2020-12-14 19:51:13,335 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_trigger_router`
+    ADD CONSTRAINT `sym_fk_tr_2_trg` FOREIGN KEY (`trigger_id`) REFERENCES `sym_trigger` (`trigger_id`)
+2020-12-14 19:51:13,355 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_trigger_router`
+    ADD CONSTRAINT `sym_fk_tr_2_rtr` FOREIGN KEY (`router_id`) REFERENCES `sym_router` (`router_id`)
+2020-12-14 19:51:13,371 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_trigger_router_grouplet`
+    ADD CONSTRAINT `sym_fk_trgplt_2_gplt` FOREIGN KEY (`grouplet_id`) REFERENCES `sym_grouplet` (`grouplet_id`)
+2020-12-14 19:51:13,386 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] DDL applied: ALTER TABLE `sym_trigger_router_grouplet`
+    ADD CONSTRAINT `sym_fk_trgplt_2_tr` FOREIGN KEY (`trigger_id`, `router_id`) REFERENCES `sym_trigger_router` (`trigger_id`, `router_id`)
+2020-12-14 19:51:13,391 INFO [client] [ClusterService] [symmetric-engine-startup-1] This node picked a server id of Davids-MacBook-Pro.local
+2020-12-14 19:51:13,391 INFO [client] [TriggerRouterService] [symmetric-engine-startup-1] Synchronizing triggers
+2020-12-14 19:51:13,436 INFO [client] [TriggerRouterService] [symmetric-engine-startup-1] Done synchronizing triggers
+2020-12-14 19:51:13,442 INFO [client] [MariaDBSymmetricDialect] [symmetric-engine-startup-1] Done with auto update of SymmetricDS tables
+2020-12-14 19:51:13,447 INFO [client] [ConfigurationService] [symmetric-engine-startup-1] Auto-configuring config channel
+2020-12-14 19:51:13,458 INFO [client] [ConfigurationService] [symmetric-engine-startup-1] Auto-configuring reload channel
+2020-12-14 19:51:13,464 INFO [client] [ConfigurationService] [symmetric-engine-startup-1] Auto-configuring monitor channel
+2020-12-14 19:51:13,470 INFO [client] [ConfigurationService] [symmetric-engine-startup-1] Auto-configuring heartbeat channel
+2020-12-14 19:51:13,475 INFO [client] [ConfigurationService] [symmetric-engine-startup-1] Auto-configuring default channel
+2020-12-14 19:51:13,481 INFO [client] [ConfigurationService] [symmetric-engine-startup-1] Auto-configuring dynamic channel
+2020-12-14 19:51:13,534 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Done initializing SymmetricDS database
+2020-12-14 19:51:13,539 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] SymmetricDS database version : null
+2020-12-14 19:51:13,539 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] SymmetricDS software version : 3.12.5
+2020-12-14 19:51:13,589 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] Starting unregistered node [group=client, externalId=client]
+2020-12-14 19:51:13,606 INFO [client] [RouterJob] [symmetric-engine-startup-1] Starting Routing on periodic schedule: every 2000ms with the first run at 2020-12-14T19:51:20.435-0500
+2020-12-14 19:51:13,608 INFO [client] [PushJob] [symmetric-engine-startup-1] Starting Push on periodic schedule: every 1000ms with the first run at 2020-12-14T19:51:20.437-0500
+2020-12-14 19:51:13,608 INFO [client] [PullJob] [symmetric-engine-startup-1] Starting Pull on periodic schedule: every 1000ms with the first run at 2020-12-14T19:51:20.437-0500
+2020-12-14 19:51:13,608 INFO [client] [JobManager] [symmetric-engine-startup-1] Job Offline Push not configured for auto start
+2020-12-14 19:51:13,608 INFO [client] [JobManager] [symmetric-engine-startup-1] Job Offline Pull not configured for auto start
+2020-12-14 19:51:13,610 INFO [client] [OutgoingPurgeJob] [symmetric-engine-startup-1] Starting job 'Purge Outgoing' with cron expression: '0 0 */4 * * *'
+2020-12-14 19:51:13,611 INFO [client] [IncomingPurgeJob] [symmetric-engine-startup-1] Starting job 'Purge Incoming' with cron expression: '0 0 */4 * * *'
+2020-12-14 19:51:13,611 INFO [client] [StatisticFlushJob] [symmetric-engine-startup-1] Starting job 'Stat Flush' with cron expression: '0 0/5 * * * *'
+2020-12-14 19:51:13,611 INFO [client] [SyncTriggersJob] [symmetric-engine-startup-1] Starting job 'SyncTriggers' with cron expression: '0 0 0 * * *'
+2020-12-14 19:51:13,612 INFO [client] [HeartbeatJob] [symmetric-engine-startup-1] Starting Heartbeat on periodic schedule: every 900000ms with the first run at 2020-12-14T19:51:20.441-0500
+2020-12-14 19:51:13,613 INFO [client] [WatchdogJob] [symmetric-engine-startup-1] Starting Watchdog on periodic schedule: every 3600000ms with the first run at 2020-12-14T19:51:20.441-0500
+2020-12-14 19:51:13,613 INFO [client] [StageManagementJob] [symmetric-engine-startup-1] Starting job 'Stage Management' with cron expression: '0 0 * * * *'
+2020-12-14 19:51:13,613 INFO [client] [JobManager] [symmetric-engine-startup-1] Job Refresh Cache not configured for auto start
+2020-12-14 19:51:13,613 INFO [client] [JobManager] [symmetric-engine-startup-1] Job File Sync Tracker not configured for auto start
+2020-12-14 19:51:13,614 INFO [client] [JobManager] [symmetric-engine-startup-1] Job File Sync Pull not configured for auto start
+2020-12-14 19:51:13,614 INFO [client] [JobManager] [symmetric-engine-startup-1] Job File Sync Push not configured for auto start
+2020-12-14 19:51:13,614 INFO [client] [InitialLoadExtractorJob] [symmetric-engine-startup-1] Starting Initial Load Extract on periodic schedule: every 10000ms with the first run at 2020-12-14T19:51:20.443-0500
+2020-12-14 19:51:13,614 INFO [client] [MonitorJob] [symmetric-engine-startup-1] Starting Monitor on periodic schedule: every 60000ms with the first run at 2020-12-14T19:51:20.443-0500
+2020-12-14 19:51:13,615 INFO [client] [JobManager] [symmetric-engine-startup-1] Job Report Status not configured for auto start
+2020-12-14 19:51:13,615 INFO [client] [JobManager] [symmetric-engine-startup-1] Job Log Miner not configured for auto start
+2020-12-14 19:51:13,615 INFO [client] [InitialLoadJob] [symmetric-engine-startup-1] Starting Initial Load Queue on periodic schedule: every 10000ms with the first run at 2020-12-14T19:51:20.444-0500
+2020-12-14 19:51:13,617 INFO [client] [AbstractSymmetricEngine] [symmetric-engine-startup-1] SymmetricDS Node STARTED:
+	 nodeId=client
+	 groupId=client
+	 type=server
+	 subType=null
+	 name=client
+	 softwareVersion=3.12.5
+	 databaseName=MariaDB
+	 databaseVersion=10.4
+	 driverName=MariaDB Connector/J
+	 driverVersion=2.4.0
+	 uptime=0 sec.
+2020-12-14 19:51:20,448 INFO [client] [PushJob] [client-job-2] Did not run the 'Push' job because the engine is not registered.
+2020-12-14 19:51:20,449 INFO [client] [RouterJob] [client-job-1] Did not run the 'Routing' job because the engine is not registered.
+2020-12-14 19:51:20,453 INFO [client] [InitialLoadExtractorJob] [client-job-6] Did not run the 'Initial Load Extract' job because the engine is not registered.
+2020-12-14 19:51:20,459 INFO [client] [InitialLoadJob] [client-job-8] Did not run the 'Initial Load Queue' job because the engine is not registered.
+2020-12-14 19:51:20,460 INFO [client] [MonitorJob] [client-job-7] Did not run the 'Monitor' job because the engine is not registered.
+2020-12-14 19:51:20,478 INFO [client] [RegistrationService] [client-job-3] This node is unregistered.  It will attempt to register using the registration.url
+2020-12-14 19:51:20,503 INFO [client] [DataLoaderService] [client-job-3] Using registration URL of http://127.0.0.1:31415/sync/master/registration
+2020-12-14 19:51:22,136 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-1] Grouplets flushed because new grouplet config came through the data loader
+2020-12-14 19:51:22,136 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-1] Load filters flushed because new filter config came through the data loader
+2020-12-14 19:51:22,136 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-1] Channels flushed because new channels came through the data loader
+2020-12-14 19:51:22,136 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-1] About to refresh the cache of conflict settings because new configuration came through the data loader
+2020-12-14 19:51:22,136 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-1] About to refresh the cache of parameters because new configuration came through the data loader
+2020-12-14 19:51:22,165 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-1] About to refresh the cache of node security because new configuration came through the data loader
+2020-12-14 19:51:22,181 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-job-3] About to refresh the cache of transformation because new configuration came through the data loader
+2020-12-14 19:51:22,181 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-job-3] About to clear the staging area because new transform configuration came through the data loader
+2020-12-14 19:51:22,182 INFO [client] [StagingManager] [client-job-3] Cleaning staging...
+2020-12-14 19:51:22,183 INFO [client] [StagingManager] [client-job-3] Purged 1 staging files, freed 11 KB of disk space.
+2020-12-14 19:51:22,183 INFO [client] [StagingManager] [client-job-3] Finished cleaning staging in 0 seconds.
+2020-12-14 19:51:22,183 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-job-3] About to syncTriggers because new configuration came through the data loader
+2020-12-14 19:51:22,184 INFO [client] [TriggerRouterService] [client-job-3] Synchronizing triggers
+2020-12-14 19:51:22,283 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_RTR_CLNT trigger for symds.sym_router
+2020-12-14 19:51:22,299 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_RTR_CLNT trigger for symds.sym_router
+2020-12-14 19:51:22,313 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_RTR_CLNT trigger for symds.sym_router
+2020-12-14 19:51:22,392 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_TRNSFRM_TBL_CLNT trigger for symds.sym_transform_table
+2020-12-14 19:51:22,405 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_TRNSFRM_TBL_CLNT trigger for symds.sym_transform_table
+2020-12-14 19:51:22,422 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_TRNSFRM_TBL_CLNT trigger for symds.sym_transform_table
+2020-12-14 19:51:22,461 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_PRMTR_CLNT trigger for symds.sym_parameter
+2020-12-14 19:51:22,470 INFO [client] [DataService] [client-job-10] Inserting missing last data gap: { startId: 1, endId: 50000001, createTime: "Mon Dec 14 19:51:22 EST 2020" }
+2020-12-14 19:51:22,473 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_PRMTR_CLNT trigger for symds.sym_parameter
+2020-12-14 19:51:22,483 INFO [client] [DataGapFastDetector] [client-job-10] Full gap analysis is running
+2020-12-14 19:51:22,488 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_PRMTR_CLNT trigger for symds.sym_parameter
+2020-12-14 19:51:22,493 INFO [client] [NodeCommunicationService] [client-job-12] push will use 10 threads
+2020-12-14 19:51:22,497 INFO [client] [DataGapFastDetector] [client-job-10] Querying data in gaps from database took 14 ms
+2020-12-14 19:51:22,497 INFO [client] [DataGapFastDetector] [client-job-10] Full gap analysis is done after 14 ms
+2020-12-14 19:51:22,529 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_FL_TRGGR_RTR_CLNT trigger for symds.sym_file_trigger_router
+2020-12-14 19:51:22,541 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_FL_TRGGR_RTR_CLNT trigger for symds.sym_file_trigger_router
+2020-12-14 19:51:22,553 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_FL_TRGGR_RTR_CLNT trigger for symds.sym_file_trigger_router
+2020-12-14 19:51:22,595 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_TBL_RLD_RQST_CLNT trigger for symds.sym_table_reload_request
+2020-12-14 19:51:22,607 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_TBL_RLD_RQST_CLNT trigger for symds.sym_table_reload_request
+2020-12-14 19:51:22,622 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_TBL_RLD_RQST_CLNT trigger for symds.sym_table_reload_request
+2020-12-14 19:51:22,695 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_GRPLT_LNK_CLNT trigger for symds.sym_grouplet_link
+2020-12-14 19:51:22,705 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_GRPLT_LNK_CLNT trigger for symds.sym_grouplet_link
+2020-12-14 19:51:22,717 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_GRPLT_LNK_CLNT trigger for symds.sym_grouplet_link
+2020-12-14 19:51:22,755 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_GRPLT_CLNT trigger for symds.sym_grouplet
+2020-12-14 19:51:22,765 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_GRPLT_CLNT trigger for symds.sym_grouplet
+2020-12-14 19:51:22,778 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_GRPLT_CLNT trigger for symds.sym_grouplet
+2020-12-14 19:51:22,854 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_FL_TRGGR_CLNT trigger for symds.sym_file_trigger
+2020-12-14 19:51:22,866 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_FL_TRGGR_CLNT trigger for symds.sym_file_trigger
+2020-12-14 19:51:22,879 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_FL_TRGGR_CLNT trigger for symds.sym_file_trigger
+2020-12-14 19:51:22,920 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_TRNSFRM_CLMN_CLNT trigger for symds.sym_transform_column
+2020-12-14 19:51:22,931 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_TRNSFRM_CLMN_CLNT trigger for symds.sym_transform_column
+2020-12-14 19:51:22,945 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_TRNSFRM_CLMN_CLNT trigger for symds.sym_transform_column
+2020-12-14 19:51:22,985 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_JB_CLNT trigger for symds.sym_job
+2020-12-14 19:51:22,999 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_JB_CLNT trigger for symds.sym_job
+2020-12-14 19:51:23,012 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_JB_CLNT trigger for symds.sym_job
+2020-12-14 19:51:23,055 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_TRGGR_RTR_CLNT trigger for symds.sym_trigger_router
+2020-12-14 19:51:23,070 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_TRGGR_RTR_CLNT trigger for symds.sym_trigger_router
+2020-12-14 19:51:23,083 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_TRGGR_RTR_CLNT trigger for symds.sym_trigger_router
+2020-12-14 19:51:23,123 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_ND_CLNT trigger for symds.sym_node
+2020-12-14 19:51:23,135 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_ND_CLNT trigger for symds.sym_node
+2020-12-14 19:51:23,149 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_ND_CLNT trigger for symds.sym_node
+2020-12-14 19:51:23,187 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_ND_GRP_CHNNL_WND_CLNT trigger for symds.sym_node_group_channel_wnd
+2020-12-14 19:51:23,197 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_ND_GRP_CHNNL_WND_CLNT trigger for symds.sym_node_group_channel_wnd
+2020-12-14 19:51:23,209 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_ND_GRP_CHNNL_WND_CLNT trigger for symds.sym_node_group_channel_wnd
+2020-12-14 19:51:23,248 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_NTFCTN_CLNT trigger for symds.sym_notification
+2020-12-14 19:51:23,259 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_NTFCTN_CLNT trigger for symds.sym_notification
+2020-12-14 19:51:23,270 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_NTFCTN_CLNT trigger for symds.sym_notification
+2020-12-14 19:51:23,310 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_ND_GRP_LNK_CLNT trigger for symds.sym_node_group_link
+2020-12-14 19:51:23,320 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_ND_GRP_LNK_CLNT trigger for symds.sym_node_group_link
+2020-12-14 19:51:23,331 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_ND_GRP_LNK_CLNT trigger for symds.sym_node_group_link
+2020-12-14 19:51:23,369 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_ND_GRP_CLNT trigger for symds.sym_node_group
+2020-12-14 19:51:23,379 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_ND_GRP_CLNT trigger for symds.sym_node_group
+2020-12-14 19:51:23,390 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_ND_GRP_CLNT trigger for symds.sym_node_group
+2020-12-14 19:51:23,429 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_ND_SCRTY_CLNT trigger for symds.sym_node_security
+2020-12-14 19:51:23,440 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_ND_SCRTY_CLNT trigger for symds.sym_node_security
+2020-12-14 19:51:23,455 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_ND_SCRTY_CLNT trigger for symds.sym_node_security
+2020-12-14 19:51:23,504 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_LD_FLTR_CLNT trigger for symds.sym_load_filter
+2020-12-14 19:51:23,516 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_LD_FLTR_CLNT trigger for symds.sym_load_filter
+2020-12-14 19:51:23,530 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_LD_FLTR_CLNT trigger for symds.sym_load_filter
+2020-12-14 19:51:23,570 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_MNTR_CLNT trigger for symds.sym_monitor
+2020-12-14 19:51:23,580 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_MNTR_CLNT trigger for symds.sym_monitor
+2020-12-14 19:51:23,592 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_MNTR_CLNT trigger for symds.sym_monitor
+2020-12-14 19:51:23,628 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_XTNSN_CLNT trigger for symds.sym_extension
+2020-12-14 19:51:23,638 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_XTNSN_CLNT trigger for symds.sym_extension
+2020-12-14 19:51:23,649 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_XTNSN_CLNT trigger for symds.sym_extension
+2020-12-14 19:51:23,701 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_CLNTTBL_CLNT trigger for symds.item
+2020-12-14 19:51:23,710 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_CLNTTBL_CLNT trigger for symds.item
+2020-12-14 19:51:23,720 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_CLNTTBL_CLNT trigger for symds.item
+2020-12-14 19:51:23,756 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_CNFLCT_CLNT trigger for symds.sym_conflict
+2020-12-14 19:51:23,767 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_CNFLCT_CLNT trigger for symds.sym_conflict
+2020-12-14 19:51:23,780 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_CNFLCT_CLNT trigger for symds.sym_conflict
+2020-12-14 19:51:23,834 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_TRGGR_CLNT trigger for symds.sym_trigger
+2020-12-14 19:51:23,848 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_TRGGR_CLNT trigger for symds.sym_trigger
+2020-12-14 19:51:23,867 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_TRGGR_CLNT trigger for symds.sym_trigger
+2020-12-14 19:51:23,908 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_CHNNL_CLNT trigger for symds.sym_channel
+2020-12-14 19:51:23,920 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_CHNNL_CLNT trigger for symds.sym_channel
+2020-12-14 19:51:23,933 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_CHNNL_CLNT trigger for symds.sym_channel
+2020-12-14 19:51:23,972 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_TRGGR_RTR_GRPLT_CLNT trigger for symds.sym_trigger_router_grouplet
+2020-12-14 19:51:23,983 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_TRGGR_RTR_GRPLT_CLNT trigger for symds.sym_trigger_router_grouplet
+2020-12-14 19:51:23,994 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_TRGGR_RTR_GRPLT_CLNT trigger for symds.sym_trigger_router_grouplet
+2020-12-14 19:51:24,031 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_I_FOR_SYM_ND_HST_CLNT trigger for symds.sym_node_host
+2020-12-14 19:51:24,043 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_U_FOR_SYM_ND_HST_CLNT trigger for symds.sym_node_host
+2020-12-14 19:51:24,055 INFO [client] [MariaDBSymmetricDialect] [client-sync-triggers-1] Creating SYM_ON_D_FOR_SYM_ND_HST_CLNT trigger for symds.sym_node_host
+2020-12-14 19:51:24,064 INFO [client] [TriggerRouterService] [client-job-3] Done synchronizing triggers
+2020-12-14 19:51:24,077 INFO [client] [RegistrationService] [client-job-3] Successfully registered node [id=client]
+2020-12-14 19:51:24,084 INFO [client] [ExtensionService] [client-job-3] Found 0 extension points from the database that will be registered
+2020-12-14 19:51:24,085 INFO [client] [ClientExtensionService] [client-job-3] Found 8 extension points from spring that will be registered
+2020-12-14 19:51:24,085 INFO [client] [PushHeartbeatListener] [client-job-3] Some attribute(s) of node changed.  Recording changes
+2020-12-14 19:51:24,085 INFO [client] [PushHeartbeatListener] [client-job-3] Updating my node configuration info according to the symmetric properties
+2020-12-14 19:51:24,105 INFO [client] [PullService] [client-job-3] Node client:client just registered, not pulling yet
+2020-12-14 19:51:24,608 INFO [client] [ConfigurationChangedDataRouter] [client-job-14] About to refresh the cache of nodes because new configuration came through the data router
+2020-12-14 19:51:24,642 INFO [client] [RouterService] [client-job-14] Routed 2 data events in 136 ms
+2020-12-14 19:51:25,116 INFO [client] [NodeCommunicationService] [client-job-5] pull will use 10 threads
+2020-12-14 19:51:25,608 INFO [client] [PushService] [client-push-default-4] Push data sent to master:master:master
+2020-12-14 19:51:25,746 INFO [client] [PushService] [client-push-default-4] Pushed data to node master:master:master. 2 data and 2 batches were processed. (sym_node, sym_node_host)
+2020-12-14 19:51:46,313 INFO [client] [ConfigurationChangedDatabaseWriterFilter] [client-dataloader-2] About to refresh the cache of node security because new configuration came through the data loader
+2020-12-14 19:51:46,334 INFO [client] [PullService] [client-pull-default-2] Pull data received from master:master:master on queue default. 2 rows and 1 batches were processed. (sym_table_reload_request, sym_node_security)
+2020-12-14 19:51:46,809 INFO [client] [ConfigurationChangedDataRouter] [client-job-12] About to refresh the cache of node security because new configuration came through the data router
+2020-12-14 19:51:46,810 INFO [client] [RouterService] [client-job-12] Routed 2 data events in 46 ms
+2020-12-14 19:51:50,490 INFO [client] [InitialLoadService] [client-job-18] Found 1 table reload requests to process.
+2020-12-14 19:51:50,516 INFO [client] [DataService] [client-job-18] Queueing up an initial load to node master
+2020-12-14 19:51:50,852 INFO [client] [DataService] [client-job-18] Table reload request(s) for load id 2 have been processed.
+2020-12-14 19:51:50,857 INFO [client] [PurgeService] [client-job-18] Purged all 1 incoming batch for node master
+2020-12-14 19:51:50,866 INFO [client] [RouterService] [client-job-7] Routed 1 data events in 39 ms
+2020-12-14 19:51:51,660 INFO [client] [DataExtractorService] [client-dataextractor-2] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:51,669 INFO [client] [PushService] [client-push-default-10] Push data sent to master:master:master
+2020-12-14 19:51:51,783 INFO [client] [PushService] [client-push-default-10] Pushed data to node master:master:master. 3 data and 3 batches were processed. (sym_table_reload_request, sym_node_security, sym_node)
+2020-12-14 19:51:51,783 INFO [client] [PushService] [client-push-default-10] Pushing to master:master:master again because the last push contained reload batches
+2020-12-14 19:51:51,795 INFO [client] [DataExtractorService] [client-dataextractor-3] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:52,662 INFO [client] [DataExtractorService] [client-dataextractor-4] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:52,916 INFO [client] [ConfigurationChangedDataRouter] [client-job-10] About to refresh the cache of node security because new configuration came through the data router
+2020-12-14 19:51:52,924 INFO [client] [RouterService] [client-job-10] Routed 2 data events in 48 ms
+2020-12-14 19:51:53,643 INFO [client] [DataExtractorService] [client-dataextractor-5] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:53,650 INFO [client] [PushService] [client-push-default-2] Push data sent to master:master:master
+2020-12-14 19:51:53,691 INFO [client] [PushService] [client-push-default-2] Pushed data to node master:master:master. 2 data and 1 batches were processed. (sym_node_security, sym_table_reload_request)
+2020-12-14 19:51:53,699 INFO [client] [DataExtractorService] [client-dataextractor-6] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:54,636 INFO [client] [DataExtractorService] [client-dataextractor-7] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:55,638 INFO [client] [DataExtractorService] [client-dataextractor-8] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:56,638 INFO [client] [DataExtractorService] [client-dataextractor-9] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:57,647 INFO [client] [DataExtractorService] [client-dataextractor-10] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:58,643 INFO [client] [DataExtractorService] [client-dataextractor-11] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:51:59,648 INFO [client] [DataExtractorService] [client-dataextractor-12] Batch master-7 is not ready for delivery.  It is currently scheduled for extraction.
+2020-12-14 19:52:00,508 INFO [client] [NodeCommunicationService] [client-job-13] extract will use 20 threads
+2020-12-14 19:52:00,536 INFO [client] [DataExtractorService] [client-extract-default-1] Starting request 2 to extract table item into batches 7 through 7 for node master.
+2020-12-14 19:52:00,582 INFO [client] [DataExtractorService] [client-extract-default-1] Done with request 2 to extract table item into batches 7 through 7 for node master
+2020-12-14 19:52:00,655 INFO [client] [PushService] [client-push-default-9] Push data sent to master:master:master
+2020-12-14 19:52:00,701 ERROR [client] [AcknowledgeService] [client-push-default-9] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:01,668 INFO [client] [PushService] [client-push-default-10] Push data sent to master:master:master
+2020-12-14 19:52:01,735 ERROR [client] [AcknowledgeService] [client-push-default-10] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:02,668 INFO [client] [PushService] [client-push-default-1] Push data sent to master:master:master
+2020-12-14 19:52:02,718 ERROR [client] [AcknowledgeService] [client-push-default-1] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:03,673 INFO [client] [PushService] [client-push-default-2] Push data sent to master:master:master
+2020-12-14 19:52:03,731 ERROR [client] [AcknowledgeService] [client-push-default-2] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:04,675 INFO [client] [PushService] [client-push-default-3] Push data sent to master:master:master
+2020-12-14 19:52:04,722 ERROR [client] [AcknowledgeService] [client-push-default-3] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:05,678 INFO [client] [PushService] [client-push-default-4] Push data sent to master:master:master
+2020-12-14 19:52:05,735 ERROR [client] [AcknowledgeService] [client-push-default-4] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:06,681 INFO [client] [PushService] [client-push-default-5] Push data sent to master:master:master
+2020-12-14 19:52:06,736 ERROR [client] [AcknowledgeService] [client-push-default-5] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:07,682 INFO [client] [PushService] [client-push-default-6] Push data sent to master:master:master
+2020-12-14 19:52:07,736 ERROR [client] [AcknowledgeService] [client-push-default-6] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:08,710 INFO [client] [PushService] [client-push-default-7] Push data sent to master:master:master
+2020-12-14 19:52:08,763 ERROR [client] [AcknowledgeService] [client-push-default-7] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:09,679 INFO [client] [PushService] [client-push-default-8] Push data sent to master:master:master
+2020-12-14 19:52:09,732 ERROR [client] [AcknowledgeService] [client-push-default-8] The outgoing batch master-7 failed: Could not find the target table 'client.item'
+2020-12-14 19:52:10,683 INFO [client] [PushService] [client-push-default-9] Push data sent to master:master:master
+2020-12-14 19:52:10,740 ERROR [client] [AcknowledgeService] [client-push-default-9] The outgoing batch master-7 failed: Could not find the target table 'client.item'
